@@ -1,0 +1,25 @@
+{
+  "name": "@tybys/preprocess-loader",
+  "version": "0.0.1",
+  "description": "Use #define #ifdef #ifndef #if #undef #else #elif #endif #include #error in webpack.",
+  "main": "loader.js",
+  "dependencies": {
+    "loader-utils": "^2.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toyobayashi/preprocess-loader.git"
+  },
+  "homepage": "https://github.com/toyobayashi/preprocess-loader#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "node test/webpack"
+  },
+  "author": "toyobayashi",
+  "license": "MIT"
+}
