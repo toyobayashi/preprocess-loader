@@ -68,13 +68,17 @@ class Compilation {
       const results = []
       const reg = /%\{(\S+?)\}/g
       while ((result = reg.exec(this.lines[lineNumber])) !== null) {
-        results.push([result[0], result[1]])
-        if (typeof this.defines[result[1]] === 'undefined') {
+        const trimmed = result[1].trim()
+        results.push([result[0], trimmed])
+        if (typeof this.defines[trimmed] === 'undefined') {
           throw new Error('Macro undefined: ' + this.lines[lineNumber])
         }
       }
       for (let i = 0; i < results.length; i++) {
         this.lines[lineNumber] = this.lines[lineNumber].replace(results[i][0], this.defines[results[i][1]])
+      }
+      if (results.length > 0) {
+        return lineNumber
       }
       return -1
     }
